@@ -47,4 +47,4 @@ var retweet = function () {
 
 retweet();
 
-setInterval(retweet, 60000);
+setInterval(retweet, 36000000);
