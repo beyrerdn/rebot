@@ -4,7 +4,7 @@ var Twitter = new twit(config);
 
 var retweet = function () {
   var params = {
-    q: '#lindyhop, #Lindyhop, #LindyHop',
+    q: '#lindyhop, #Lindyhop, #LindyHop, #swingdance, #SwingDance',
     result_type: 'recent',
     lang: 'en'
   }
