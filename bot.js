@@ -13,7 +13,9 @@ var retweet = function () {
       // if there no errors
         if (!err) {
           // grab ID of tweet to retweet
-            var retweetId = data.statuses[0].id_str;
+            var statuses = data.statuses
+            var status = statuses[Math.floor(Math.random() * statuses.length)]
+            var retweetId = status.id_str;
             // Tell TWITTER to retweet
             Twitter.post('statuses/retweet/:id', {
                 id: retweetId
@@ -24,6 +26,7 @@ var retweet = function () {
                 // if there was an error while tweeting
                 if (err) {
                     console.log('Something went wrong while RETWEETING... Duplication maybe...');
+                    retweet();
                 }
             });
         }
