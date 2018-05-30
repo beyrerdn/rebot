@@ -2,11 +2,12 @@ var twit = require('twit');
 var config = require('./config.js');
 var Twitter = new twit(config);
 
+var queryCount = 0;
+
 var retweet = function () {
   var params = {
     q: '#lindyhop, #Lindyhop, #LindyHop, #swingdance, #SwingDance',
-    result_type: 'recent',
-    lang: 'en'
+    result_type: 'recent'
   }
 
   Twitter.get('search/tweets', params, function(err, data) {
@@ -14,7 +15,7 @@ var retweet = function () {
         if (!err) {
           // grab ID of tweet to retweet
             var statuses = data.statuses
-            var status = statuses[Math.floor(Math.random() * statuses.length)]
+            var status = statuses[queryCount]
             var retweetId = status.id_str;
             // Tell TWITTER to retweet
             Twitter.post('statuses/retweet/:id', {
@@ -26,7 +27,13 @@ var retweet = function () {
                 // if there was an error while tweeting
                 if (err) {
                     console.log('Something went wrong while RETWEETING... Duplication maybe...');
-                    retweet();
+                    if queryCount < 5 {
+                      retweet();
+                    } else {
+                      console.log('5th attempt. Will try next time.');
+                      queryCount = 0;
+                    }
+                    queryCount += 1;
                 }
             });
         }
