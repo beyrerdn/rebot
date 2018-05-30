@@ -27,13 +27,13 @@ var retweet = function () {
                 // if there was an error while tweeting
                 if (err) {
                     console.log('Something went wrong while RETWEETING... Duplication maybe...');
-                    if queryCount < 5 {
+                    if (queryCount < 5) {
                       retweet();
                     } else {
                       console.log('5th attempt. Will try next time.');
-                      queryCount = 0;
+                      queryCount = 0
                     }
-                    queryCount += 1;
+                    queryCount += 1
                 }
             });
         }
