@@ -15,7 +15,7 @@ var retweet = function () {
         if (!err) {
           // grab ID of tweet to retweet
             var statuses = data.statuses
-            console.log(`${status.length} Tweets returned`)
+            console.log(`${statuses.length} Tweets returned`)
             var status = statuses[queryCount] || statuses[0]
             var retweetId = status.id_str;
             // Tell TWITTER to retweet
