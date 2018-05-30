@@ -39,3 +39,5 @@ var retweet = function () {
 }
 
 retweet();
+
+setInterval(retweet, 60000);
