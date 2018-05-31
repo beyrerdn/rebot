@@ -6,7 +6,8 @@ var queryCount = 0;
 
 var retweet = function () {
   var params = {
-    q: '#lindyhop, #Lindyhop, #LindyHop, #swingdance, #SwingDance, Lindy Hop, Lindy hop, lindy hop, ilhc, #ilhc, #ILHC',
+    q: `#lindyhop, #Lindyhop, #LindyHop, #swingdance, #SwingDance,
+        Lindy\x20Hop, Lindy\x20hop, lindy\x20hop, ilhc, #ilhc, #ILHC`,
     result_type: 'recent'
   }
 
