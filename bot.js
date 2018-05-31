@@ -28,7 +28,7 @@ var retweet = function () {
                 }
                 // if there was an error while tweeting
                 if (err) {
-                    console.log('Something went wrong while RETWEETING... Duplication maybe...');
+                    console.log(`${err.stack}`);
                     if (queryCount < statuses.length) {
                       retweet();
                     } else {
@@ -43,7 +43,6 @@ var retweet = function () {
         // if unable to Search a tweet
         else {
           console.log('Something went wrong while SEARCHING...');
-          console.log('Error stack:');
           console.log(`${err.stack}`);
         }
     });
