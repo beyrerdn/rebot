@@ -14,9 +14,9 @@ var retweet = function () {
       // if there no errors
         if (!err) {
           // grab ID of tweet to retweet
-            var statuses = data.statuses
-            console.log(`${statuses.length} Tweets returned`)
-            var status = statuses[queryCount] || statuses[0]
+            var statuses = data.statuses;
+            console.log(`${statuses.length} Tweets returned`);
+            var status = statuses[queryCount] || statuses[0];
             var retweetId = status.id_str;
             // Tell TWITTER to retweet
             Twitter.post('statuses/retweet/:id', {
@@ -32,9 +32,9 @@ var retweet = function () {
                       retweet();
                     } else {
                       console.log('5th attempt. Will try next time.');
-                      queryCount = 0
+                      queryCount = 0;
                     }
-                    queryCount += 1
+                    queryCount += 1;
                 }
             });
         }
