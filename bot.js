@@ -6,8 +6,7 @@ var queryCount = 0;
 
 var retweet = function () {
   var params = {
-    q: `#lindyhop, #Lindyhop, #LindyHop, #swingdance, #SwingDance,
-        Lindy\x20Hop, Lindy\x20hop, lindy\x20hop, ilhc, #ilhc, #ILHC`,
+    q: '#lindyhop, #Lindyhop, #LindyHop, #swingdance, #SwingDance, lindy\x20hop, Lindy\x20Hop, Lindy\x20hop',
     result_type: 'recent'
   }
 
@@ -38,6 +37,9 @@ var retweet = function () {
                       return
                     }
                     queryCount += 1;
+                } else {
+                  console.log('Retweet was a success!!!');
+                  queryCount = 0;
                 }
             });
         }
