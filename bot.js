@@ -24,15 +24,17 @@ var retweet = function () {
             }, function(err, response) {
                 if (response) {
                     console.log('Retweeted!!!');
+                    console.log(`queryCount is ${queryCount}`);
                 }
                 // if there was an error while tweeting
                 if (err) {
                     console.log('Something went wrong while RETWEETING... Duplication maybe...');
-                    if (queryCount < 5) {
+                    if (queryCount < statuses.length) {
                       retweet();
                     } else {
-                      console.log('5th attempt. Will try next time.');
+                      console.log(`Attempt number ${statuses.length}. Will try next time.`);
                       queryCount = 0;
+                      return
                     }
                     queryCount += 1;
                 }
@@ -41,6 +43,8 @@ var retweet = function () {
         // if unable to Search a tweet
         else {
           console.log('Something went wrong while SEARCHING...');
+          console.log('Error stack:');
+          console.log(`${err.stack}`);
         }
     });
 
