@@ -32,7 +32,7 @@ var retweet = function () {
                     if (queryCount < statuses.length) {
                       retweet();
                     } else {
-                      console.log(`Attempt number ${statuses.length}. Will try next time.`);
+                      console.log(`Attempt number ${queryCount}. Will try next time.`);
                       queryCount = 0;
                       return
                     }
